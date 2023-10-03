@@ -1,0 +1,1319 @@
+tags:
+    - name: users
+      description: users API
+    - name: state
+      description: state API
+
+paths:
+    # [GET] users
+    /users:
+        get:
+            tags:
+                - users
+            summary: Find All Users
+            responses:
+                200:
+                    description: 'OK'
+                500:
+                    description: 'Server Error'
+
+        # [POST] users
+        post:
+            tags:
+                - users
+            summary: Add User
+            parameters:
+                - name: body
+                  in: body
+                  description: user Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/users'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] users/id
+    /users/{id}:
+        get:
+            tags:
+                - users
+            summary: Find User By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: User Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [PUT] users/id
+        put:
+            tags:
+                - users
+            summary: Update User By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: user Id
+                  required: true
+                - name: body
+                  in: body
+                  description: user Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/users'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [DELETE] users/id
+        delete:
+            tags:
+                - users
+            summary: Delete User By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: user Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # effect rule
+    # effect rule
+    # effect rule
+
+    # [GET] effectRule/id
+    /effectRule/{id}:
+        get:
+            tags:
+                - effectRule
+            summary: get state's effect rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                404:
+                    description: 'State Not Found'
+                500:
+                    description: 'Server Error'
+
+        # [POST] effectRule
+        post:
+            tags:
+                - effectRule
+            summary: Add Effect Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: effectRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/effectRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        patch:
+            tags:
+                - effectRule
+            summary: Update Effect Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: effectRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/effectRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        delete:
+            tags:
+                - effectRule
+            summary: Delete Effect Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: effectRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/effectRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # conditional rule
+    # conditional rule
+    # conditional rule
+    # conditional rule
+
+    # [GET] conditionalRule/id
+    /conditionalRule/{id}:
+        get:
+            tags:
+                - conditionalRule
+            summary: Find the state's Conditional Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                404:
+                    description: 'State Not Found'
+                500:
+                    description: 'Server Error'
+
+        # [POST] conditionalRule
+        post:
+            tags:
+                - conditionalRule
+            summary: Add Conditional Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: conditionalRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/conditionalRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        patch:
+            tags:
+                - conditionalRule
+            summary: Update Conditional Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: conditionalRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/conditionalRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        delete:
+            tags:
+                - conditionalRule
+            summary: Delete Conditional Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: conditionalRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/conditionalRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # conditional rule
+    # statement rule
+    # statement rule
+
+    # [GET] statementRule/id
+    /statementRule/{id}:
+        get:
+            tags:
+                - statementRule
+            summary: Find the state's Statement Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                404:
+                    description: 'State Not Found'
+                500:
+                    description: 'Server Error'
+
+        # [POST] statementRule
+        post:
+            tags:
+                - statementRule
+            summary: Add Statement Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: statementRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/statementRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        patch:
+            tags:
+                - statementRule
+            summary: Update Statement Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: statementRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/statementRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        delete:
+            tags:
+                - statementRule
+            summary: Delete Statement Rule
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+                - name: body
+                  in: body
+                  description: statementRule Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/statementRule'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # STATES
+    # STATES
+    # STATES
+
+    # [GET] state
+    /state/all:
+        post:
+            tags:
+                - state
+            summary: Find all States By game's Id
+            parameters:
+                - name: body
+                  in: body
+                  description: state Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/searchState'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                404:
+                    description: 'Not Found'
+                500:
+                    description: 'Server Error'
+    # [GET] state
+    /state:
+        # [POST] state
+        post:
+            tags:
+                - state
+            summary: Add State
+            parameters:
+                - name: body
+                  in: body
+                  description: state Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/state'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        put:
+            tags:
+                - state
+            summary: Update State By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: state Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/state'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] state/id
+    /state/{id}:
+        get:
+            tags:
+                - state
+            summary: Find State By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: State Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [PUT] state/id
+
+        # [DELETE] state/id
+        delete:
+            tags:
+                - state
+            summary: Delete State By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: state Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [POST] games
+    /game/find:
+        post:
+            tags:
+                - games
+            summary: get game By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: game Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/gameres'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] games
+    /game/all:
+        post:
+            tags:
+                - games
+            summary: get games By user Id
+            parameters:
+                - name: body
+                  in: body
+                  description: game Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/game'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+    /game:
+        get:
+            tags:
+                - games
+            summary: Find All games
+            responses:
+                200:
+                    description: 'OK'
+                500:
+                    description: 'Server Error'
+
+        # [POST] games
+        post:
+            tags:
+                - games
+            summary: Add game
+            parameters:
+                - name: body
+                  in: body
+                  description: game Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/game'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+        put:
+            tags:
+                - games
+            summary: Update game By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: game Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/game'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] games/id
+    /game/{id}:
+        get:
+            tags:
+                - games
+            summary: Find game By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: game Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [PUT] games/id
+
+        # [DELETE] games/id
+        delete:
+            tags:
+                - games
+            summary: Delete game By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: game Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # game game
+
+    /card:
+        # [POST] card
+        post:
+            tags:
+                - cards
+            summary: Create card By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: card Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/card'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [PUT] card
+        put:
+            tags:
+                - cards
+            summary: Update card By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: card Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/card'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] card/all/id
+    /card/all/{id}:
+        get:
+            tags:
+                - cards
+            summary: Get all cards by deck's Id
+            parameters:
+                - name: id
+                  in: path
+                  description: deck Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] card/id
+    /card/{id}:
+        get:
+            tags:
+                - cards
+            summary: Find card By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: card Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [DELETE] cards/id
+        delete:
+            tags:
+                - cards
+            summary: Delete card By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: card Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] deck/
+    /deck:
+        # [POST] deck
+        post:
+            tags:
+                - decks
+            summary: Create deck
+            parameters:
+                - name: body
+                  in: body
+                  description: deck Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/deck'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        put:
+            tags:
+                - decks
+            summary: Update deck By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: deck Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/deck'
+            responses:
+                200:
+                    description: 'OK'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+        # [DELETE] decks
+        delete:
+            tags:
+                - decks
+            summary: Delete deck By Id
+            parameters:
+                - name: body
+                  in: body
+                  description: deck Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/deck'
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] deck/all/id
+    /deck/all/{id}:
+        get:
+            tags:
+                - decks
+            summary: Get all decks by deck's Id
+            parameters:
+                - name: id
+                  in: path
+                  description: game Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    # [GET] deck
+    /deck/{id}:
+        get:
+            tags:
+                - decks
+            summary: Find deck By Id
+            parameters:
+                - name: id
+                  in: path
+                  description: deck Id
+                  required: true
+            responses:
+                200:
+                    description: 'OK'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+    /pdf:
+        # [POST] pdf
+        post:
+            tags:
+                - pdf
+            summary: Add pdf
+            parameters:
+                - name: body
+                  in: body
+                  description: pdf Data
+                  required: true
+                  schema:
+                      $ref: '#/definitions/pdf'
+            responses:
+                201:
+                    description: 'Created'
+                400:
+                    description: 'Bad Request'
+                409:
+                    description: 'Conflict'
+                500:
+                    description: 'Server Error'
+
+definitions:
+    users:
+        type: object
+        required:
+            - email
+            - password
+        properties:
+            id:
+                description: user Id
+            email:
+                type: string
+                description: user Email
+            password:
+                type: string
+                description: user Password
+
+    game:
+        type: object
+        required:
+            - user
+        properties:
+            _id:
+                type: string
+                description: state Id
+            user:
+                type: string
+                description: user owner
+            name:
+                type: string
+            description:
+                type: string
+            audience:
+                type: string
+            knowledgeField:
+                type: string
+            requirements:
+                type: string
+            minNumberPlayers:
+                type: number
+            maxNumberPlayers:
+                type: number
+            authors:
+                type: array
+                items:
+                    type: string
+
+    gameres:
+        type: object
+        properties:
+            game:
+                $ref: '#/definitions/game'
+            states:
+                type: array
+                items:
+                    $ref: '#/definitions/state'
+            decks:
+                type: array
+                items:
+                    $ref: '#/definitions/deck'
+
+    statementRule:
+        type: object
+        properties:
+            _id:
+                type: string
+            label:
+                type: string
+            simplerDescription:
+                type: string
+            me:
+                type: string
+            to:
+                type: string
+            given:
+                type: string
+            when:
+                type: string
+            then:
+                type: string
+            otherwise:
+                type: string
+
+    effectRule:
+        type: object
+        required:
+            - label
+        properties:
+            _id:
+                type: string
+            label:
+                type: string
+            effect:
+                effect:
+                type: object
+                properties:
+                    _id:
+                        description: effect's id
+                    simpleEffect:
+                        type: string
+                    statusChange:
+                        type: string
+                    toSelfPlayer:
+                        type: boolean
+                    toSpecificPlayer:
+                        type: boolean
+                    toPlayerRole:
+                        type: string
+                    forever:
+                        type: boolean
+                    turns:
+                        type: number
+
+    conditionalRule:
+        type: object
+        required:
+            - label
+            - conditions
+            - stateDefault
+        properties:
+            id:
+                description: state Id
+            label:
+                type: string
+                description: state label
+            conditions:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        test:
+                            type: string
+                        effectIfTrue:
+                            type: object
+                            properties:
+                                simpleEffect:
+                                    type: string
+                                statusChange:
+                                    type: string
+                                toSelfPlayer:
+                                    type: boolean
+                                toSpecificPlayer:
+                                    type: boolean
+                                toPlayerRole:
+                                    type: string
+                                forever:
+                                    type: boolean
+                                turns:
+                                    type: number
+                        stateIfTrue:
+                            type: string
+            failureCondition:
+                type: object
+                properties:
+                    test:
+                        type: string
+                    effectIfTrue:
+                        type: object
+                        properties:
+                            simpleEffect:
+                                type: string
+                            statusChange:
+                                type: string
+                            toSelfPlayer:
+                                type: boolean
+                            toSpecificPlayer:
+                                type: boolean
+                            toPlayerRole:
+                                type: string
+                            forever:
+                                type: boolean
+                            turns:
+                                type: number
+                    stateIfTrue:
+                        type: string
+                description: state default to go if all fails
+
+    searchState:
+        type: object
+        required:
+            - game
+        properties:
+            _id:
+                type: string
+            game:
+                type: string
+            label:
+                type: string
+
+    state:
+        type: object
+        required:
+            - label
+            - description
+        properties:
+            id:
+                description: state Id
+            label:
+                type: string
+                description: state label
+            game:
+                type: string
+                description: game
+            purpose:
+                type: string
+                description: state description
+            x:
+                type: number
+                description: x
+            y:
+                type: number
+                description: y
+            width:
+                type: number
+                description: width
+            height:
+                type: number
+                description: height
+            statementRules:
+                type: array
+                items:
+                    type: object
+                    properties:
+                        label:
+                            type: string
+                        simplerDescription:
+                            type: string
+                        me:
+                            type: string
+                        to:
+                            type: string
+                        given:
+                            type: string
+                        when:
+                            type: string
+                        then:
+                            type: string
+                        otherwise:
+                            type: string
+            conditionalRule:
+                type: object
+                description: state rule
+            effectRule:
+                type: object
+                properties:
+                    label:
+                        type: string
+                    conditions:
+                        type: array
+                        items:
+                            type: object
+                            properties:
+                                test:
+                                    type: string
+                                effectIfTrue:
+                                    type: object
+                                    properties:
+                                        simpleEffect:
+                                            type: string
+                                        statusChange:
+                                            type: string
+                                        toSelfPlayer:
+                                            type: boolean
+                                        toSpecificPlayer:
+                                            type: boolean
+                                        toPlayerRole:
+                                            type: string
+                                        forever:
+                                            type: boolean
+                                        turns:
+                                            type: number
+                                stateIfTrue:
+                                    type: string
+                    defaultState:
+                        type: string
+                        description: default state
+            transition:
+                type: string
+                description: state transition
+
+    card:
+        type: object
+        required:
+            - deck
+            - cardFront
+        properties:
+            id:
+                description: card Id
+            deck:
+                type: string
+                description: deck id
+            repetitions:
+                type: number
+                description: deck id
+            cardFront:
+                type: object
+                properties:
+                    title:
+                        type: string
+                    art:
+                        type: string
+                    description:
+                        type: string
+                    effect:
+                        type: object
+                        properties:
+                            simpleEffect:
+                                type: string
+                            statusChange:
+                                type: string
+                            toSelfPlayer:
+                                type: boolean
+                            toSpecificPlayer:
+                                type: boolean
+                            toPlayerRole:
+                                type: string
+                            forever:
+                                type: boolean
+                            turns:
+                                type: number
+                    cost:
+                        type: number
+                    level:
+                        type: number
+                    earning:
+                        type: number
+            cardBack:
+                type: object
+                properties:
+                    title:
+                        type: string
+                    answers:
+                        type: string
+                    effect:
+                        type: string
+                    cost:
+                        type: number
+                    level:
+                        type: number
+                    earning:
+                        type: number
+
+    deck:
+        type: object
+        required:
+            - game
+            - deckFront
+        properties:
+            id:
+                description: deck Id
+            game:
+                type: string
+                description: game id
+            name:
+                type: string
+                description: deck name
+            color:
+                type: string
+                description: deck color
+            description:
+                type: string
+                description: deck purpose
+            deckFront:
+                type: object
+                required:
+                    - title
+                    - description
+                properties:
+                    title:
+                        type: boolean
+                    art:
+                        type: boolean
+                    description:
+                        type: boolean
+                    effect:
+                        type: boolean
+                    cost:
+                        type: boolean
+                    level:
+                        type: boolean
+                    earning:
+                        type: boolean
+            deckBack:
+                type: object
+                required:
+                    - title
+                    - answers
+                properties:
+                    title:
+                        type: boolean
+                    answers:
+                        type: boolean
+                    effect:
+                        type: boolean
+                    cost:
+                        type: boolean
+                    level:
+                        type: boolean
+                    earning:
+                        type: boolean
+
+    effect:
+        type: object
+        properties:
+            _id:
+                description: effect's id
+            simpleEffect:
+                type: string
+            statusChange:
+                type: string
+            toSelfPlayer:
+                type: boolean
+            toSpecificPlayer:
+                type: boolean
+            toPlayerRole:
+                type: string
+            forever:
+                type: boolean
+            turns:
+                type: number
+
+schemes:
+    - https
+    - http

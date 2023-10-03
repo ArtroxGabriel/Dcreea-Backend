@@ -1,0 +1,138 @@
+tags:
+  - name: state
+    description: state API
+
+paths:
+  # [GET] state
+  /state:
+    get:
+      tags:
+        - state
+      summary: Find All States
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+    # [POST] state
+    post:
+      tags:
+        - state
+      summary: Add State
+      parameters:
+        - name: body
+          in: body
+          description: state Data
+          required: true
+          schema:
+            $ref: '#/definitions/state'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+  # [GET] state/id
+  /state/{id}:
+    get:
+      tags:
+        - state
+      summary: Find State By Id
+      parameters:
+        - name: id
+          in: path
+          description: State Id
+          required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+    # [PUT] state/id
+    put:
+      tags:
+        - state
+      summary: Update State By Id
+      parameters:
+        - name: id
+          in: path
+          description: state Id
+          required: true
+        - name: body
+          in: body
+          description: state Data
+          required: true
+          schema:
+            $ref: '#/definitions/state'
+      responses:
+        200:
+          description: 'OK'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+    # [DELETE] state/id
+    delete:
+      tags:
+        - state
+      summary: Delete State By Id
+      parameters:
+        - name: id
+          in: path
+          description: state Id
+          required: true
+      responses:
+        200:
+          description: 'OK'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+# definitions
+definitions:
+  state:
+    type: object
+    required:
+      - label
+      - description
+      - statementRules
+      - effectRule
+      - conditionalRule
+      - transition
+    properties:
+      id:
+        description: state Id
+      label:
+        type: string
+        description: state label
+      description:
+        type: string
+        description: state description
+      statementRules:
+        type: array
+        description: state rule
+      conditionalRule:
+        type: string
+        description: state rule
+      effectRule:
+        type: string
+        description: state rule
+      transition:
+        type: string
+        description: state transition
+
+schemes:
+  - https
+  - http

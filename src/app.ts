@@ -59,7 +59,7 @@ class App {
             this.app.use(morgan('combined', { stream }));
             this.app.use(
                 cors(
-                    { origin: 'http://localhost:4200', credentials: true }
+                    //{ origin: 'http://localhost:4200', credentials: true }
                 ),
             );
         } else {

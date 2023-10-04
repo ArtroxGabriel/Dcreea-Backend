@@ -1,24 +1,44 @@
-# Common build stage
-FROM node:14.14.0-alpine3.12 as common-build-stage
+FROM node:12.22.3-alpine3.11 AS base
 
-COPY . ./app
+FROM base AS deps
+
+WORKDIR /app
+ 
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+FROM base AS build
 
 WORKDIR /app
 
-RUN npm install
+COPY --from=deps /app/node_modules ./node_modules
 
-EXPOSE 3000
+COPY . .
 
-# Dvelopment build stage
-FROM common-build-stage as development-build-stage
+RUN npm run build
 
-ENV NODE_ENV development
+FROM base AS runtime
 
-CMD ["npm", "run", "dev"]
-
-# Production build stage
-FROM common-build-stage as production-build-stage
+LABEL "author.name"="Said Rodrigues" \
+"author.email"="coderflemis@gmail.com" \
+version="1.0.0" desc="Site Institucional da CEOS em NextJS"
 
 ENV NODE_ENV production
 
-CMD ["npm", "run", "start"]
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S gabrigas -u 1001
+
+COPY --from=deps --chown=gabrigas:nodejs /app/node_modules ./node_modules
+COPY --from=build --chown=gabrigas:nodejs /app/dist/ .
+
+USER gabrigas
+EXPOSE 3000
+ENV PORT 3000
+
+CMD ["node", "server.js"]

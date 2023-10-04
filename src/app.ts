@@ -58,9 +58,8 @@ class App {
         if (this.env === 'production') {
             this.app.use(morgan('combined', { stream }));
             this.app.use(
-                cors(
-                    //{ origin: 'http://localhost:4200', credentials: true }
-                ),
+                cors(),
+                // { origin: 'https://dcreea.herokuapp.com/', credentials: true }
             );
         } else {
             this.app.use(morgan('dev', { stream }));

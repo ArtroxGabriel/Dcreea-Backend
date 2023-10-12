@@ -3,7 +3,7 @@ import winston from 'winston';
 import winstonDaily from 'winston-daily-rotate-file';
 
 // logs dir
-const logDir = __dirname + './logs';
+const logDir = './logs';
 
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir);

@@ -25,9 +25,9 @@ RUN npm run build
 
 FROM base AS runtime
 
-LABEL "author.name"="Said Rodrigues" \
-"author.email"="coderflemis@gmail.com" \
-version="1.0.0" desc="Site Institucional da CEOS em NextJS"
+LABEL "author.name"=" authorname" \
+"author.email"=" author@email" \
+version="1.0.0" desc=" Dcreeaa"
 
 ENV NODE_ENV production
 
